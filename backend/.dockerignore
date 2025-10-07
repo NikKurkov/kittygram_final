@@ -1,0 +1,14 @@
+# Файл .dockerignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+.env
+static/
+media/
+.collected_static/
+.idea/
+.vscode/
+dist/
+build/
