@@ -132,8 +132,10 @@ jobs:
         with:
           to: ${{ secrets.TG_CHAT_ID }}
           token: ${{ secrets.TG_BOT_TOKEN }}
-          format: markdown
+          format: html
+          disable_web_page_preview: true
           message: |
-            ✅ *Kittygram deployed successfully!*
-            Repo: ${{ github.repository }}
-            Commit: ${{ github.sha }}
+            ✅ <b>Kittygram deployed successfully!</b>
+            Repo: <code>${{ github.repository }}</code>
+            Commit: <code>${{ github.sha }}</code>
+            Run: <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">open</a>
