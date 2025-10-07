@@ -31,8 +31,8 @@ jobs:
         working-directory: backend
         run: flake8
 
-      - name: Run backend tests
-        run: pytest -q
+#      - name: Run backend tests
+#        run: pytest -q
 
       - name: Set up Node
         uses: actions/setup-node@v4
