@@ -35,7 +35,14 @@ services:
     container_name: kittygram_frontend
     restart: always
     # Кладём build фронта в общий том static
-    command: sh -c "cp -r /app/build/. /static/"
+    command: >
+      sh -c "
+        mkdir -p /static &&
+        # кладём index.html и манифесты в корень
+        cp -f /app/build/index.html /app/build/manifest.json /app/build/favicon.ico /static/ 2>/dev/null || true &&
+        # переносим содержимое build/static/* прямо в /static/
+        [ -d /app/build/static ] && cp -r /app/build/static/* /static/ || true
+      "
     volumes:
       - static:/static
 
